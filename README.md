@@ -1,5 +1,3 @@
-
-```markdown
 # CompactPy 🧠⚡
 
 An intelligent, multi-evolutionary hierarchical memory and context compression framework designed to optimize LLM prompt footprints and eliminate token bloat in RAG pipelines.
@@ -11,7 +9,8 @@ An intelligent, multi-evolutionary hierarchical memory and context compression f
 ---
 
 ## 🚀 The Core Problem
-Large Language Models have finite, expensive context windows. Storing raw, repetitive conversational history, system clutter, and loose narrative prose directly in the prompt window leads to massive API billing inflation, elevated system latency, and model confusion due to key context dilution. 
+
+Large Language Models have finite, expensive context windows. Storing raw, repetitive conversational history, system clutter, and loose narrative prose directly in the prompt window leads to massive API billing inflation, elevated system latency, and model confusion due to key context dilution.
 
 **CompactPy solves this.** By mimicking cognitive memory tiers, vector math similarities, and directed knowledge graphs, it drops prompt footprints by **40%+** while perfectly preserving deep engineering states and concept dependencies.
 
@@ -22,31 +21,50 @@ Large Language Models have finite, expensive context windows. Storing raw, repet
 CompactPy processes raw runtime context streams across six specialized optimization phases:
 
 ### 1. Token Analytics Core (`compactpy.core`)
+
 Uses high-speed BPE tokenization via `tiktoken` to run precision boundaries, calculating exact text lengths and tracking compression metrics down to individual bits.
 
 ### 2. Algorithmic Compression Engines (`compactpy.compressors`)
+
 * **Exact Deduplication Engine:** Automatically strips out repetitive context loops and chronological logs while keeping structural stream order intact.
 * **Semantic Compressor:** Embeds data blocks via `SentenceTransformer`, executing vector **Cosine Similarity** arrays to eliminate overlapping thoughts (e.g., keeping only one variation of a phrase if similarity crosses a `0.75` threshold).
 
 ### 3. Hierarchical Memory Repository (`compactpy.memory`)
+
 Isolates text strings into explicit cognitive abstraction layers based on real-world utility:
+
 * `raw_memory`: The volatile, incoming execution log dump.
 * `working_memory`: Active short-term operational buffers available for immediate context retrieval.
 * `long_term_memory`: High-value project parameters and user rules that never decay.
 
 ### 4. Memory Scoring Engine (`compactpy.scoring`)
+
 Memories are evaluated dynamically using a custom, long-horizon linear performance formula:
 
-$$\text{Score} = 0.4 \times \text{Importance} + 0.3 \times \text{Utility} + 0.2 \times \text{Recency} + 0.1 \times \text{Frequency}$$
+```math
+Score = 0.4 × Importance + 0.3 × Utility + 0.2 × Recency + 0.1 × Frequency
+```
 
 High-scoring nodes are promoted straight to Long-Term Memory, medium nodes stay in Working storage, and low-scoring noise is automatically evicted to prevent token bloat.
 
 ### 5. Relational Graph Memory System (`compactpy.graph_memory`)
+
 Converts raw long-term strings into dense, indexed, bidirectional **Knowledge Graphs** using `NetworkX`. Instead of raw prose, it stores knowledge as structured triplets:
-$$\text{Source Entity} \xrightarrow{\text{Relation}} \text{Target Entity}$$
-*Example:* `FastAPI` $\rightarrow$ `backend_of` $\rightarrow$ `Mediscan AI`. This retains complex causal relationships without wasting prompt space.
+
+```text
+Source Entity --(Relation)--> Target Entity
+```
+
+**Example:**
+
+```text
+FastAPI --(backend_of)--> Mediscan AI
+```
+
+This retains complex causal relationships without wasting prompt space.
 
 ### 6. Attention-Aware Compressor (`compactpy.compressors.attention`)
+
 Acts as a dynamic "Importance Predictor." When a user passes a live query, it calculates the attention weight of your history pool relative to that query, dynamically filling a targeted prompt token budget with the highest-relevance vectors.
 
 ---
@@ -57,7 +75,6 @@ Install the production framework directly from PyPI:
 
 ```bash
 pip install compactpy
-
 ```
 
 ---
@@ -67,7 +84,6 @@ pip install compactpy
 Here is how to run the complete automated ingestion, scoring, and query-aware compaction loop:
 
 ```python
-import time
 from compactpy.memory import HierarchicalMemory
 from compactpy.scoring import MemoryScoringEngine
 from compactpy.graph_memory import GraphMemorySystem
@@ -87,19 +103,18 @@ raw_logs = [
 ]
 
 for log in raw_logs:
-    # Set technical blocks to higher base importance
     importance = 0.85 if "FastAPI" in log or "Mediscan" in log else 0.3
     memory_vault.add_memory(log, importance=importance, utility=0.7)
 
-# 3. Simulate usage hits and run the Lifecycle Scoring Engine
+# 3. Simulate usage hits and run lifecycle scoring
 memory_vault.increment_frequency(raw_logs[1])
 scoring_engine.process_lifecycle_cycle(memory_vault)
 
-# 4. Map persistent facts structurally into the Knowledge Graph
+# 4. Map persistent facts into the knowledge graph
 graph_db.add_relation("FastAPI", "backend_of", "Mediscan AI")
 graph_facts = graph_db.get_relationships_as_text()
 
-# 5. Compile query-relevant payload under a tight token budget ceiling
+# 5. Build a query-aware compact context
 user_query = "What backend options did we settle on for Mediscan AI?"
 combined_context = [m["text"] for m in memory_vault.working_memory] + graph_facts
 
@@ -111,7 +126,6 @@ optimized_payload, metrics = attention_compressor.compress_context_for_query(
 
 print(f"Optimized Prompt Context: {optimized_payload}")
 print(f"Token Reduction: {metrics['reduction_percentage']}%")
-
 ```
 
 ---
@@ -136,7 +150,6 @@ python demo_step6.py
 
 # Run the complete end-to-end processing pipeline
 python run_compactpy_pipeline.py
-
 ```
 
 ---
@@ -154,6 +167,3 @@ CompactPy scales robustly with dense context footprints. Below is the empirical 
 ## 📄 License
 
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
-
-```
-

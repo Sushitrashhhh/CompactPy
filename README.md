@@ -145,5 +145,4 @@ python run_compactpy_pipeline.py
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-```
 

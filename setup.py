@@ -3,7 +3,6 @@ from setuptools import setup, find_packages
 setup(
     name="compactpy",
     version="0.1.0",
-    # Explicitly include the package folder so setuptools doesn't get confused
     packages=find_packages(include=["compactpy", "compactpy.*"]),
     install_requires=[
         "tiktoken>=0.5.0",

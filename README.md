@@ -132,24 +132,24 @@ print(f"Token Reduction: {metrics['reduction_percentage']}%")
 
 ## 🧪 Running Validation Demos
 
-The project repository includes individual step verification scripts right at the root level. Run them to watch the math and optimization phases execute live in your terminal:
+The project repository keeps runnable verification scripts under `bin/`. Run them to watch the math and optimization phases execute live in your terminal:
 
 ```bash
 # Test token utilities and basic compressors
-python demo_step1.py
-python demo_step2.py
+python bin/demo_phase1_foundations.py
+python bin/demo_step2.py
 
 # Test hierarchical lifecycle scoring loops
-python demo_step3.py
+python bin/demo_step3.py
 
 # Test graph relationship mapping
-python demo_step5.py
+python bin/demo_step5.py
 
 # Test dynamic attention query budgeting
-python demo_step6.py
+python bin/demo_step6.py
 
 # Run the complete end-to-end processing pipeline
-python run_compactpy_pipeline.py
+python bin/run_compactpy_pipeline.py
 ```
 
 ---
@@ -158,7 +158,7 @@ python run_compactpy_pipeline.py
 
 CompactPy scales robustly with dense context footprints. Below is the empirical efficiency evaluation demonstrating token reduction scaling against processing latency:
 
-![CompactPy Performance Curve](compactpy_benchmark_curve.png)
+![CompactPy Performance Curve](bin/compactpy_benchmark_curve.png)
 
 * **Token Optimization:** Reaches up to **95%+ token space reduction** under dense context scales by aggressively pruning semantic redundancies and noise.
 * **Latency Footprint:** Post-initialization, context filtration operates dynamically in **under 50ms**, ensuring real-world suitability for high-throughput LLM pipelines.
